@@ -1,4 +1,20 @@
+Your README should briefly introduce your code: tell how you developed it, if there were any major challenges (and how you debugged them). I'd also like you to reflect on the code presented in this tutorial. Here are a few questions:
+
+Is the gazetteer we're using appropriate for the text? What might be some of the challenges of using Nominatim with a book published in 1859?
+How accurate do you think the outputs are? Are there any city names that seem suspect? If so, what are some Natural Language Processing methods that you could use to filter words that might be city names, but probably weren't intended as city references in the text?
+What are some alternative approaches to mapping the data? The tutorial here uses duplicate entries and opacity to present a type of "color ramp": could this be done better?
+
 # Geoparsing with Python
+
+Evan Collins
+IDCE30274
+
+I think this processing is very useful. The code tis quite straightforward, and not very difficult to input a book's text and turn around to show a map of locations mentioned in the book. Quite powerful. I didn't run into many issues because the tutorial was very explicit. I had issue showing a map and figure from one function.
+  
+Perhaps the gazetter is not appropriate, since the place names may have changed since the time the book was written. Although, I noticed older city names did seem to be picked up. My main issue is that things that may not have been cities were being detected and counted as cities. Words such as 'Of', 'Man', and 'Much.' These may be city names, but wheather they were being used as city names in the text is the question. Here we are only checking the equivalency of the words, not the context, so their is no way of answering this question without reading the book.  
+We could check use case by looking at words around the toponym. To try to figure out if it is being used as a location. This would not be easy though. The other issue is that the same city names exsist is multiple places. This is especially true of the USA, which took many of its names from other places in the world. The most likely way to know which is being referred to is with context clues, which we would not have. I'm not sure there would be an easy way to make up for this issue, as some sources, like the Twain book are talking about places all over the world - how can we know which one of a city is being talked about.  
+A better way to map occurance 
+
 
 This week we are going to work on _geoparsing_, which refers to the process of extracting place-names from text and matching those names with spatial coordinates. For GISers, it's easy to forget that massive amounts of geographic information are not contained with vector or raster data... not captured in `.shp` or `.gpx` files or neatly organized in `GeoJSON`... because these are the data models and file formats that we're used to working with. The reality is, however, that truly mind-bogglingly large amounts of geographic data currently reside in unstructured text. Think about it, you may attach a "location" to your social media feeds (likely where you are living or your hometown) but that doesn't reflect all the spatial references you make in social media posts. Human don't think in terms of latitude and longitude... we don't think in coordinates... and even placenames can be a problem since so many of them are vernacular. As an aside, I still don't understand how the word "square" in Massachusetts is used to refer to often - very particular - road junctions such as "Kelley Square" in Worcester, which is less of a place than it is a terrifying act of automotive faith.
 
